@@ -1,34 +1,56 @@
 #include <iostream>
-#include <string>
+#include <iomanip>
 
-int getHoursWorked()
-{
-	int hoursWorked;
-	std::cout << "Please type how many hours you worked. ";
-	std::cin >> hoursWorked;
-	return hoursWorked;
-}
-
-int getPayRate()
-{
-	double payRate;
-	std::cout << "Please enter your pay rate. ";
-	std::cin >> payRate;
-	return payRate;
-}
-
-int calcGross()
-{
-
-}
+double getHoursWorked();
+double getPayRate();
+double calcGross();
+double calcGross(double workHours, double thePayRate);
 
 int main()
 {
-	getHoursWorked();
-	getPayRate();
-	calcGross();
 
+	double hoursWorked = 0;
+	double payRate = 0;
+	double grossPay = 0;
+
+
+	hoursWorked = getHoursWorked();
+	payRate = getPayRate();
+
+
+	grossPay = calcGross(hoursWorked, payRate);
+
+
+	std::cout << " Gross Pay: " << grossPay << std::endl;
 
 	system("pause");
 	return 0;
+}
+
+double getHoursWorked()
+{
+	double hoursOfWork;
+	std::cout << "Please enter hours worked " << std::endl;
+	std::cin >> hoursOfWork;
+
+	return hoursOfWork;
+
+}
+
+double getPayRate()
+{
+	double rateOfPay;
+
+	std::cout << " Enter pay rate $ " << std::endl;;
+	std::cin >> rateOfPay;
+
+	return rateOfPay;
+}
+
+double calcGross(double workHours, double thePayRate)
+{
+	double calculatedGross = 0.0;
+	calculatedGross = workHours * thePayRate;
+	return calculatedGross;
+
 }
